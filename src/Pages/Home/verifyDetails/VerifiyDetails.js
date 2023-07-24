@@ -3,9 +3,9 @@ import verifyImg from '../../../assets/feature-img-verify.png'
 const VerifiyDetails = () => {
     return (
       <div>
-        <section className="dark:bg-gray-800 dark:text-gray-100">
+        <section className="dark:bg-white dark:text-gray-100">
           <div className="container flex flex-col-reverse mx-auto items-center lg:flex-row">
-            <div className=" dark:bg-gray-800 w-3/4">
+            <div className=" dark:bg-white w-3/4">
               <div className="">
                 <img
                   src={verifyImg}
@@ -14,7 +14,7 @@ const VerifiyDetails = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-col w-full   py-8 space-y-6 rounded-sm sm:p-8 lg:p-12  dark:bg-violet-400 dark:text-gray-900">
+            <div className="flex flex-col w-full   py-8 space-y-6 rounded-sm sm:p-8 lg:p-12  text-gray-900">
               <button
                 type="button"
                 className="px-8 py-1 w-1/2 rounded-full bg-gray-100  text-blue-700 font-bold"
