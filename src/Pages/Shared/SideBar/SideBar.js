@@ -1,89 +1,58 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react/jsx-no-comment-textnodes */
 
-import React from 'react';
+import React from "react";
 import { useState } from "react";
 import control from "../../../../src/assets/control.png";
 import logo from "../../../../src/assets/logo.png";
-import Dashboard from "../../../../src/assets/Chart_fill.png";
-import inbox from "../../../../src/assets/Chat.png";
-import Accounts from "../../../../src/assets/User.png";
-import Schedule from "../../../../src/assets/Calendar.png";
-import Search from "../../../../src/assets/Search.png";
-import Chart from "../../../../src/assets/Chart.png";
-import Files from "../../../../src/assets/Folder.png";
-import Setting from "../../../../src/assets/Setting.png";
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
+import { FiEye } from "react-icons/fi";
+import { BsShieldLock } from "react-icons/bs";
+import { BsPersonBoundingBox } from "react-icons/bs";
+import { FaShopLock } from "react-icons/fa6";
+import { PiBankDuotone } from "react-icons/pi";
+import { MdOutlineManageAccounts, MdSupportAgent } from "react-icons/md";
+
 const SideBar = () => {
-
-
   const [open, setOpen] = useState(true);
   const Menus = [
-    { title: "Home", src: Dashboard },
-    { title: "Inbox", src: inbox },
-    { title: "Accounts", src: Accounts, gap: true },
-    { title: "Schedule ", src: Schedule },
-    { title: "Search", src: Search },
-    { title: "Analytics", src: Chart },
-    { title: "Files ", src: Files, gap: true },
-    { title: "Setting", src: Setting },
+    { title: "HOME", src: <FaHome size={22} />, routes: "Home" },
+    {
+      title: "DOCUMENT OCR SCANNER",
+      src: <FiEye size={22} />,
+      routes: "DOCUMENT-ORC-SCANNER",
+    },
+    {
+      title: "IDENTITY VERIFICATION ",
+      src: <BsShieldLock size={22} />,
+      routes: "IDENTITY-VERIFICATION",
+    },
+    {
+      title: "BIOMETRIC VERIFICATION",
+      src: <BsPersonBoundingBox size={22} />,
+      routes: "BIOMETRIC-VERIFICATION",
+    },
+    {
+      title: "Retail & E-commerce",
+      src: <FaShopLock size={22} />,
+      routes: "Retail-&-Ecommerce",
+    },
+    {
+      title: "Financial Services",
+      src: <PiBankDuotone size={22} />,
+      gap: true,
+      routes: "Financial-Services",
+    },
+    { title: "CONTACT ", src: <MdSupportAgent size={22} />, routes: "CONTACT" },
+    {
+      title: "Accounts",
+      src: <MdOutlineManageAccounts size={22} />,
+      gap: true,
+      routes: "Accounts",
+    },
   ];
   return (
-    // <div className="flex">
-    //   <div className=" top-0 z-10 ">
-    //     <div
-    //       className={` ${
-    //         open ? "w-72" : "w-20 "
-    //       } bg-dark-purple h-screen p-5  pt-8 relative duration-300 `}
-    //     >
-    //       <img
-    //         src={control}
-    //         className={`absolute cursor-pointer -right-3 z-50 top-9 w-7 border-dark-purple
-    //        border-2 rounded-full  ${!open && "rotate-180"}`}
-    //         onClick={() => setOpen(!open)}
-    //       />
-    //       <div className="flex gap-x-4 items-center">
-    //         <img
-    //           src={logo}
-    //           className={`cursor-pointer duration-500 ${
-    //             open && "rotate-[360deg]"
-    //           }`}
-    //         />
-    //         <h1
-    //           className={`text-white origin-left font-medium text-xl duration-200 ${
-    //             !open && "scale-0"
-    //           }`}
-    //         >
-    //           E-KYC Verification
-    //         </h1>
-    //       </div>
-    //       <ul className="pt-6">
-    //         {Menus.map((Menu, index) => (
-    //           <li
-    //             key={index}
-    //             className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4
-    //           ${Menu.gap ? "mt-2" : "mt-2"} ${
-    //               index === 0 && "bg-light-white"
-    //             } `}
-    //           >
-    //             <img src={Menu.src} />
-    //             <span
-    //               className={`${!open && "hidden"} origin-left duration-200`}
-    //             >
-    //               {Menu.title}
-    //             </span>
-    //           </li>
-    //         ))}
-    //       </ul>
-    //     </div>
-    //   </div>
-    //   <div className="h-screen flex-1 ">
-    //     <h1 className="">
-    //       {" "}
-    //       <Outlet />
-    //     </h1>
-    //   </div>
-    // </div>
     <div>
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -123,24 +92,22 @@ const SideBar = () => {
             </div>
             <ul className="pt-6">
               {Menus.map((Menu, index) => (
-             
-                  <Link to={`/${Menu.title}`}
-                    key={index}
-                    className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4
+                <Link
+                  to={`/${Menu.routes}`}
+                  key={index}
+                  className={`flex  uppercase rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4
               ${Menu.gap ? "mt-2" : "mt-2"} ${
-                      index === 0 && "bg-light-white"
-                    } `}
+                    index === 0 && "bg-light-white"
+                  } `}
+                >
+                  {/* <img src={Menu.src} /> */}
+                  <span> {Menu.src}</span>
+                  <span
+                    className={`${!open && "hidden"} origin-left  duration-200`}
                   >
-                    <img src={Menu.src} />
-                    <span
-                      className={`${
-                        !open && "hidden"
-                      } origin-left duration-200`}
-                    >
-                      {Menu.title}
-                    </span>
-                  </Link>
-          
+                    {Menu.title}
+                  </span>
+                </Link>
               ))}
             </ul>
           </div>
