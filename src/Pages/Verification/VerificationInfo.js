@@ -3,7 +3,7 @@ import React from 'react';
 const VerificationInfo = () => {
     return (
         <div>
-            hidden
+            Hidden
         </div>
     );
 };
