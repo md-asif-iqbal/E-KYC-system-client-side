@@ -6,6 +6,13 @@ import NID from "./Pages/Verification/NID/NID";
 // import VerificationInfo from "./Pages/Verification/VerificationInfo";
 import DocumentScanner from "./Pages/Verification/DocumentScanner/DocumentScanner";
 import SignIN from "./Pages/Shared/Login/SignIN";
+import IdentityVerification from "./Pages/Verification/IdentityVerification/IdentityVerification";
+import RetailEcommerce from "./Pages/Verification/RetailEcommerce/RetailEcommerce";
+import FinancialServices from "./Pages/Verification/FinancialServices/FinancialServices";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import SignUP from "./Pages/Shared/Login/SignUP";
+import Contact from "./Pages/Shared/contact/Contact";
 function App() {
   const router = createBrowserRouter([
     {
@@ -25,8 +32,28 @@ function App() {
           element: <DocumentScanner />,
         },
         {
+          path: "/IDENTITY-VERIFICATION",
+          element: <IdentityVerification />,
+        },
+        {
+          path: "/Retail-Ecommerce",
+          element: <RetailEcommerce />,
+        },
+        {
+          path: "/Financial-Services",
+          element: <FinancialServices />,
+        },
+        {
           path: "/Accounts",
           element: <SignIN />,
+        },
+        {
+          path: "/signUp",
+          element: <SignUP />,
+        },
+        {
+          path: "/CONTACT",
+          element: <Contact />,
         },
         {
           path: "/nid-verify",
@@ -36,8 +63,9 @@ function App() {
     },
   ]);
   return (
-    <div className="App">
+    <div className="App bg-white font-mono">
       <RouterProvider router={router} />
+      <ToastContainer />
     </div>
   );
 }
