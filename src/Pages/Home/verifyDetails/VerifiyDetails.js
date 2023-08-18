@@ -135,7 +135,7 @@ const VerifiyDetails = () => {
             </div>
             <button
               type="button"
-              class="text-gray-900 w-1/2 bg-[#F7BE38] hover:bg-[#F7BE38]/90 focus:ring-4 focus:ring-[#F7BE38]/50 font-medium rounded-lg text-sm px-10 py-2.5 text-center inline-flex items-center  dark:focus:ring-[#F7BE38]/50 mr-2 mb-2"
+              className="text-gray-900 w-1/2 bg-[#F7BE38] hover:bg-[#F7BE38]/90 focus:ring-4 focus:ring-[#F7BE38]/50 font-medium rounded-lg text-sm px-10 py-2.5 text-center inline-flex items-center  dark:focus:ring-[#F7BE38]/50 mr-2 mb-2"
             >
               VIEW SUPPORTED DOCUMENTS
             </button>

@@ -3,13 +3,13 @@ import docupass from '../../../assets/docupass_live_en.png'
 const Docupass = () => {
     return (
       <div>
-        <section className="bg-dark-purple dark:text-gray-100">
+        <section className="bg-dark-purple text-gray-100">
           <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
             <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
               <h1 className="text-xl font-bold leadi">
                 REALTIME IDENTITY CHECK
               </h1>
-              <span className="dark:text-violet-400 text-4xl font-bold">
+              <span className="text-violet-400 text-4xl font-bold">
                 DOCUPASS
               </span>
               <p className="mt-6 mb-8 text-lg sm:mb-12">
@@ -22,7 +22,7 @@ const Docupass = () => {
               <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
                 <button
                   rel="noopener noreferrer"
-                  className="px-8 py-3 text-lg font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
+                  className="px-8 py-3 text-lg font-semibold rounded bg-violet-400 text-gray-900"
                 >
                   DOCUPASS FEATURES
                 </button>
