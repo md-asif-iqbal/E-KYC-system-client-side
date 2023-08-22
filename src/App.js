@@ -14,6 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import SignUP from "./Pages/Shared/Login/SignUP";
 import Contact from "./Pages/Shared/contact/Contact";
 import BiometricVerification from "./Pages/Verification/BiometricVerification/BiometricVerification";
+import PaymentSuccess from "./components/PaymentSuccess";
 function App() {
   const router = createBrowserRouter([
     {
@@ -63,6 +64,10 @@ function App() {
         {
           path: "/nid-verify",
           element: <NID />,
+        },
+        {
+          path: "/payment/success/:tranId",
+          element: <PaymentSuccess />,
         },
       ],
     },

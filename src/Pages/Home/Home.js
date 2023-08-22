@@ -7,6 +7,7 @@ import Docupass from "./Docupass/Docupass";
 import VerifyCards from "./VerifyCards/VerifyCards";
 import Patners from "./Patners/Patners";
 import IDScannerDetails from "./IDScannerDetails/IDScannerDetails";
+import Form from "../../components/Form";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <VerifyCards />
       <Patners />
       <IDScannerDetails />
+      <Form />
       <Footer />
     </div>
   );
