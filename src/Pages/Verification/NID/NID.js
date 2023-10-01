@@ -300,11 +300,11 @@ const NID = () => {
           </div>
         </form>
       </section>
-      <div className="container" style={{ height: "100vh" }}>
+      <div className="container mt-10" style={{ height: "100vh" }}>
         <div className="row h-full">
           <div className="  col-span-5 mx-auto h-full flex flex-column justify-center">
             {!isLoading && (
-              <h1 className="text-center py-5 mc-5">Image To Text</h1>
+              <h1 className="text-center py-5 mc-5">Upload your NID </h1>
             )}
             {isLoading && (
               <>
@@ -312,7 +312,7 @@ const NID = () => {
                   {progress}%{" "}
                 </progress>{" "}
                 <p className="text-center py-0 my-0">
-                  Converting:- {progress} %
+                  progressing :- {progress} %
                 </p>
               </>
             )}
@@ -328,8 +328,8 @@ const NID = () => {
                 <input
                   type="button"
                   onClick={handleSubmits}
-                  className="btn btn-primary mt-5"
-                  value="Convert"
+                  className="btn btn-primary mt-2"
+                  value="Verify"
                 />
               </>
             )}

@@ -5,6 +5,7 @@ import emrz from "../../../assets/mrz-support.jpg"
 import barcode from "../../../assets/barcode-support.jpg"
 import Service from '../../../components/Service';
 import { GrNext } from 'react-icons/gr';
+import { Link } from 'react-router-dom';
 
 const DocumentScanner = () => {
 
@@ -46,6 +47,11 @@ const DocumentScanner = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div>
+                <h1 className='mt-28'>Step 1 Verify  </h1>
+                <h2 className='text-black font-bold '> NID Verification </h2>
+                <Link to='/nid-verify' className=' mt-5 btn bg-rose-600 border-0 text-white'>Click here</Link>
             </div>
             <Service />
         </div>

@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import biomatric from'../../../assets/feature-biometric-verification.jpg'
 import Footer from '../../Shared/Footer/Footer';
 import { GrNext } from 'react-icons/gr';
-
+import { TbCapture } from 'react-icons/tb';
 import axios from 'axios';
 import Webcam from 'react-webcam';
 
@@ -17,7 +17,7 @@ const BiometricVerification = () => {
   const [faceToken2, setFaceToken2] = useState('');
   const [imageURL2, setImageURL2] = useState('');
   const [comparisonResult, setComparisonResult] = useState('');
-
+  console.log(comparisonResult.confidence);
   const imgStorageKey = "058582fd7ce562d09cfe637cf2190600";
   const handleImageUpload1 = async (event) => {
     const file = event.target.files[0];
@@ -156,8 +156,8 @@ console.log(screenshotBlob);
       </div>
       <>
       <div className=''>
-      <h1>Face Comparison</h1>
-      <div>
+      <h1 className='font-bold text-2xl'>Face Verification</h1>
+      {/* <div>
         <label>
           API Key:
           <input
@@ -166,8 +166,8 @@ console.log(screenshotBlob);
             onChange={(e) => setApiKey(e.target.value)}
           />
         </label>
-      </div>
-      <div>
+      </div> */}
+      {/* <div>
         <label>
           API Secret:
           <input
@@ -176,23 +176,28 @@ console.log(screenshotBlob);
             onChange={(e) => setApiSecret(e.target.value)}
           />
         </label>
-      </div>
+      </div> */}
       <div>
-        <h2>Face 1</h2>
+        <h2 className='font-bold '>Take A Photo </h2>
         <Webcam className='mx-auto items-center'
         audio={false}
         ref={webcamRef}
         screenshotFormat="image/jpeg"
       />
-      <button className='btn rounded-full mb-10' onClick={captureWebcamScreenshot}>Capture Webcam Photo</button>
+        <button onClick={captureWebcamScreenshot} class="bg-white  transform hover:-translate-y-3 mx-auto border-2 w-12 h-12 rounded-full duration-500 text-rose-600 mb-5 border-black mt-5 hover:bg-white hover:text-black text-2xl">
+    <TbCapture size={33} className='mx-auto'/>
+  </button>
+ 
+      {/* <button className='btn rounded-full mb-10' >Capture Webcam Photo</button> */}
       {imageURL2 && (
         <div>
           <h2>Webcam Photo</h2>
           <img className='mx-auto items-center' src={imageURL2} alt="Webcam" />
         </div>
       )}
-
-        
+ <br/>
+       <div className='mt-5 mb-5'>
+       <h1 className='font-bold mb-3'>Your NID Card</h1>
         <input
           type="file"
           accept="image/*"
@@ -203,13 +208,26 @@ console.log(screenshotBlob);
             <img className='mx-auto items-center' src={imageURL1} alt="Image 1" />
           )
         }
+       </div>
        
       </div>
 
-      <button className='btn' onClick={compareFaces}>Compare Faces</button>
+     {
+      imageURL1 && imageURL2 &&(
+        <button className='btn hover:bg-rose-600 bg-white hover:text-white border-rose-600 border-2' onClick={compareFaces}>Face Verify</button>
+      )
+     }
       {comparisonResult && (
         <div>
           <h2>Comparison Result</h2>
+        {
+          comparisonResult.confidence>=70?  <> <h1> Face matched </h1>
+           <h1>Your Verification Percent is  {parseInt(comparisonResult.confidence) }%</h1>
+          </>
+          :<> <h2 className='text-center font-bold'>Your Face and NID Card is not Matched </h2>
+          <h1 className='text-red-600 text-center font-bold'>Verify Again</h1>
+          </>
+        }
           <pre>{JSON.stringify(comparisonResult, null, 2)}</pre>
         </div>
       )}
